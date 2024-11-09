@@ -10,10 +10,13 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Web del Coro de la Universidad Nacional de Hurlingham"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -29,6 +32,8 @@ const { title } = Astro.props;
   :root {
   }
   html {
+    scroll-behavior: smooth;
+    scroll-margin: 0px;
     font-family:
       Roboto,
       system-ui,
@@ -44,7 +49,13 @@ const { title } = Astro.props;
   }
   body {
     display: grid;
-    min-height: 100vh;
+    min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
+  }
+  nav {
+    grid-row: 1;
+  }
+  footer {
+    grid-row: 3;
   }
 </style>

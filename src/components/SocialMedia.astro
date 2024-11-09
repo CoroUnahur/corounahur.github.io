@@ -1,0 +1,18 @@
+---
+import { socialMediaLinks } from "../utils/data.js";
+---
+
+<div class="flex flex-row justify-between items-center gap-2">
+  {
+    socialMediaLinks.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-zircon-100"
+      >
+        <link.icon width="25" height="25" />
+      </a>
+    ))
+  }
+</div>

@@ -6,6 +6,11 @@ export default {
   },
   plugins: [],
   theme: {
+    screens: {
+      laptop: "1024px",
+      tablet: "768px",
+      mobile: "640px",
+    },
     extend: {
       colors: {
         greenPea: {

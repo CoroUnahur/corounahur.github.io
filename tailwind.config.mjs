@@ -13,7 +13,7 @@ export default {
     },
     extend: {
       colors: {
-        greenPea: {
+        apple: {
           50: "#f0faeb",
           100: "#dff3d4",
           200: "#c1e9ad",
@@ -26,7 +26,7 @@ export default {
           900: "#28481f",
           950: "#12270c",
         },
-        apple: {
+        greenPea: {
           50: "#f1f8f4",
           100: "#deeee2",
           200: "#bedcc9",

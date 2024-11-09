@@ -1,5 +1,5 @@
 ---
-const { text, href, color } = Astro.props;
+const { text = "Button", href = "#", color = "blue" } = Astro.props;
 
 const buttonClass = [
   "rounded-3xl",
@@ -7,14 +7,14 @@ const buttonClass = [
   "border-2",
   "px-6",
   "py-2",
-  "font-semibold",
+  "font-bold",
   "cursor-pointer",
   `border-${color}-500`,
   `hover:border-${color}-600`,
   `text-${color}-500`,
-];
+].join(" ");
 ---
 
-<a class:list={buttonClass} href={href}>
+<a class={buttonClass} href={href}>
   {text}
 </a>

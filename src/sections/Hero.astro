@@ -1,6 +1,7 @@
 ---
 import Button from "@/components/Button.astro";
 import Navbar from "@/components/Navbar.astro";
+import Separator from "@/components/Separator.astro";
 import { Arrow } from "@/icons/index.astro";
 ---
 
@@ -15,7 +16,7 @@ import { Arrow } from "@/icons/index.astro";
     w-dvw
     h-svh
     bg-[url('./bgMobile.webp')]
-    laptop:bg-[url('./bgDesktop.png')]
+    laptop:bg-[url('./bgDesktop.webp')]
     bg-center
     bg-cover
     before:absolute
@@ -27,34 +28,34 @@ import { Arrow } from "@/icons/index.astro";
   >
     <h1 class="font-bold text-6xl">CORO</h1>
     <p class="text-xl">Universidad Nacional de Hurlingham</p>
-    <span class="w-1/4 max-w-40 h-[2px] bg-gray-400 rounded"></span>
+    <Separator />
     <p class="text-balance max-w-4xl">
       Nuestro coro está compuesto por estudiantes apasionados por la música, que
       se unen para crear armonías y melodías que inspiran y emocionan.
     </p>
     <Button href="#inscripcion" text="Quiero Inscribirme" color="apple" />
+    <span
+      id="arrow"
+      class="laptop:hidden flex justify-center scale-125 m-auto w-dvw absolute -bottom-10"
+    >
+      <Arrow />
+    </span>
   </section>
-  <span
-    id="arrow"
-    class="laptop:hidden flex justify-center scale-125 m-auto w-dvw absolute -bottom-10"
-  >
-    <Arrow />
-  </span>
-</section>
 
-<style>
-  #arrow {
-    animation: bounceArrow 1.5s infinite;
-  }
-  @keyframes bounceArrow {
-    0% {
-      transform: translateY(0);
+  <style>
+    #arrow {
+      animation: bounceArrow 1.5s infinite;
     }
-    50% {
-      transform: translateY(10px);
+    @keyframes bounceArrow {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
-    100% {
-      transform: translateY(0);
-    }
-  }
-</style>
+  </style>
+</section>

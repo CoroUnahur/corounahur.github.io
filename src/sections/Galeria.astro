@@ -1,0 +1,48 @@
+---
+import { fetchInstagramImages } from "@/utils/data";
+import "photoswipe/style.css";
+import { images } from "@/utils/data";
+
+// const images = await fetchInstagramImages();
+console.log(images);
+---
+
+<section class="h-auto w-auto p-5 bg-cinder-950">
+  <h2 class="text-zircon-50 text-2xl font-semibold">Galeria</h2>
+  <article
+    class="columns-2 h-auto laptop:columns-4 gap-4 py-3 laptop:py-5"
+    id="gallery"
+  >
+    {
+      images.map(({ src, width, height, description }) => (
+        <a
+          href={src}
+          data-pswp-width={width}
+          data-pswp-height={height}
+          target="_blank"
+          class="relative block group"
+        >
+          {/* <div class="absolute flex flex-col justify-end items-start p-4 rounded-[10px] inset-0 bg-gradient-to-t from-cinder-950 to-transparent opacity-0 laptop:group-hover:opacity-100 transition-opacity">
+            <p class="font-semibold text-zircon-50 text-xl">{description}</p>
+          </div> */}
+          <img class="rounded-xl w-full mb-3" src={src} alt="" />
+        </a>
+      ))
+    }
+  </article>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    bgClickAction: "close",
+    tapAction: "close",
+    doubleTapAction: false,
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+</script>

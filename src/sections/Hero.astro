@@ -1,0 +1,60 @@
+---
+import Button from "@/components/Button.astro";
+import Navbar from "@/components/Navbar.astro";
+import { Arrow } from "@/icons/index.astro";
+---
+
+<Navbar class="z-[3]" />
+<section
+  id="menu"
+  class="z-[1]
+    items-center
+    relative
+    flex
+    flex-col
+    w-dvw
+    h-svh
+    bg-[url('./bgMobile.webp')]
+    laptop:bg-[url('./bgDesktop.png')]
+    bg-center
+    bg-cover
+    before:absolute
+    before:inset-0
+    before:bg-gradient-to-t from-cinder-950 from-15% laptop:via-transparent laptop:to-cinder-950 laptop:to-95% to-transparent to-60% -translate-y-20"
+>
+  <section
+    class="absolute z-[2] text-center h-dvh bottom-10 laptop:mt-52 text-zircon-50 gap-5 flex flex-col justify-end items-center"
+  >
+    <h1 class="font-bold text-6xl">CORO</h1>
+    <p class="text-xl">Universidad Nacional de Hurlingham</p>
+    <span class="w-1/4 max-w-40 h-[2px] bg-gray-400 rounded"></span>
+    <p class="text-balance max-w-4xl">
+      Nuestro coro está compuesto por estudiantes apasionados por la música, que
+      se unen para crear armonías y melodías que inspiran y emocionan.
+    </p>
+    <Button href="#inscripcion" text="Quiero Inscribirme" color="apple" />
+  </section>
+  <span
+    id="arrow"
+    class="laptop:hidden flex justify-center scale-125 m-auto w-dvw absolute -bottom-10"
+  >
+    <Arrow />
+  </span>
+</section>
+
+<style>
+  #arrow {
+    animation: bounceArrow 1.5s infinite;
+  }
+  @keyframes bounceArrow {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

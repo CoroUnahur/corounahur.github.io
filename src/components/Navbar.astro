@@ -1,7 +1,7 @@
 ---
 import { menuItems } from "@/utils/data";
-import SocialMedia from "./SocialMedia.astro";
-import { Menu } from "../icons/index.astro";
+import SocialMedia from "@/components/SocialMedia.astro";
+import { Menu } from "@/icons/index.astro";
 
 const props = Astro.props;
 ---
@@ -37,7 +37,7 @@ const props = Astro.props;
 
 <style>
   #logo {
-    animation: traslateLogo auto linear;
+    animation: traslateLogoMobile auto linear;
     animation-timeline: scroll(root block);
   }
   #navbar {
@@ -45,7 +45,14 @@ const props = Astro.props;
     animation-timeline: scroll(root block);
   }
 
-  @keyframes traslateLogo {
+  @media (min-width: 1024px) {
+    #logo {
+      animation: traslateLogoDesktop auto linear;
+      animation-timeline: scroll(root block);
+    }
+  }
+
+  @keyframes traslateLogoMobile {
     7% {
       transform: translateY(0);
       scale: 1;
@@ -56,6 +63,22 @@ const props = Astro.props;
     }
     100% {
       transform: translateX(-300%);
+      scale: 0.7;
+    }
+  }
+  @keyframes traslateLogoDesktop {
+    7% {
+      transform: translateY(0);
+      scale: 1;
+      top: 0.25rem;
+    }
+    15% {
+      transform: translateX(-1300%);
+      scale: 0.7;
+      top: 0.25rem;
+    }
+    100% {
+      transform: translateX(-1300%);
       scale: 0.7;
     }
   }
@@ -72,15 +95,3 @@ const props = Astro.props;
     }
   }
 </style>
-
-<!-- <script>
-  const animatedNavbar = document.querySelector("nav");
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 100) {
-      animatedNavbar?.classList.remove("hidden");
-    } else {
-      animatedNavbar?.classList.add("hidden");
-    }
-  });
-</script> -->

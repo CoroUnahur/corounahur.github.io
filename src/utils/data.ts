@@ -12,10 +12,10 @@ interface SocialMedia {
 }
 
 export const menuItems: MenuItem[] = [
-    { href: '/menu', name: 'Menú' },
-    { href: '/conciertos', name: 'Conciertos' },
-    { href: '/galeria', name: 'Galeria' },
-    { href: '/inscripcion', name: 'Inscripción' }
+    { href: '#menu', name: 'Menú' },
+    { href: '#conciertos', name: 'Conciertos' },
+    { href: '#galeria', name: 'Galeria' },
+    { href: '#inscripcion', name: 'Inscripción' }
 ];
 
 

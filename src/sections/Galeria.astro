@@ -4,7 +4,6 @@ import "photoswipe/style.css";
 import { images } from "@/utils/data";
 
 // const images = await fetchInstagramImages();
-console.log(images);
 ---
 
 <section class="h-auto w-auto p-5 bg-cinder-950">
@@ -22,9 +21,6 @@ console.log(images);
           target="_blank"
           class="relative block group"
         >
-          {/* <div class="absolute flex flex-col justify-end items-start p-4 rounded-[10px] inset-0 bg-gradient-to-t from-cinder-950 to-transparent opacity-0 laptop:group-hover:opacity-100 transition-opacity">
-            <p class="font-semibold text-zircon-50 text-xl">{description}</p>
-          </div> */}
           <img class="rounded-xl w-full mb-3" src={src} alt="" />
         </a>
       ))

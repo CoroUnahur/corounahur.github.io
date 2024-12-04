@@ -1,0 +1,39 @@
+---
+const { srcPreview, src, id } = Astro.props;
+---
+
+<a
+  data-modal-target={id}
+  data-modal-toggle={id}
+  class="block w-full md:w-auto text-white rounded-lg"
+>
+  <img
+    id={id + "preview"}
+    class="rounded-xl w-full mb-3 transition-transform duration-300 ease-in-out transform laptop:hover:scale-105"
+    src={srcPreview}
+    alt=""
+  />
+</a>
+
+<div
+  id={id}
+  tabindex="-1"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-8 overflow-x-hidden overflow-y-auto md:inset-0 h-dvh max-h-dvh"
+>
+  <div class="relative w-full max-w-4xl max-h-full">
+    <!-- Modal content -->
+    <div class="relative bg-cinder-950 rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal body -->
+      <div class="text-white">
+        <img src={src} alt="Modal Image" class="w-dvw rounded-lg" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const $imagePreview = document.querySelector("a img");
+  $imagePreview?.addEventListener("click", () => {
+    $imagePreview.classList.toggle("active:scale-100");
+  });
+</script>

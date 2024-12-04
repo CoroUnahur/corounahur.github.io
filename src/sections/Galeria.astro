@@ -1,4 +1,5 @@
 ---
+import Modal from "@/components/Modal.astro";
 import { images } from "@/utils/data";
 import "photoswipe/style.css";
 ---
@@ -13,33 +14,9 @@ import "photoswipe/style.css";
     id="galeria"
   >
     {
-      images.map(({ src, width, height, description }) => (
-        <a
-          href={src}
-          data-pswp-width={width}
-          data-pswp-height={height}
-          target="_blank"
-          class="relative block group"
-        >
-          <img class="rounded-xl w-full mb-3" src={src} alt="" />
-        </a>
+      images.map(({ srcPreview, src, description }) => (
+        <Modal srcPreview={srcPreview} src={src} id={src} />
       ))
     }
   </article>
 </section>
-
-<script>
-  import PhotoSwipeLightbox from "photoswipe/lightbox";
-  import "photoswipe/style.css";
-
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: "#gallery",
-    children: "a",
-    bgClickAction: "close",
-    tapAction: "close",
-    doubleTapAction: false,
-    pswpModule: () => import("photoswipe"),
-  });
-
-  lightbox.init();
-</script>

@@ -28,75 +28,72 @@ export const socialMediaLinks: SocialMedia[] = [
 export interface Image {
     description: string;
     src: string;
+    srcPreview?: string;
     width?: number;
     height?: number;
 }
 
-
 export const images: Image[] = [
     {
         description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-200.jpg',
         width: 2500,
         height: 1667
     },
     {
         description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg',
         width: 752,
         height: 940
     },
     {
         description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.webp',
-        width: 752,
-        height: 900
-    },
-    {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg',
         width: 752,
         height: 900
     },
     {
         description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg',
         width: 752,
         height: 940
     },
     {
         description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-200.jpg',
         width: 752,
         height: 900
     },
     {
         description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/8/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/8/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/8/img-200.jpg',
         width: 752,
         height: 940
     },
     {
         description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/9/img-200.webp',
-        width: 752,
-        height: 900
-    },
-    {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/10/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/10/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/10/img-200.jpg',
         width: 752,
         height: 900
     },
     {
         description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/11/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/11/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/11/img-200.jpg',
         width: 752,
         height: 940
     },
     {
         description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg',
+        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg',
+        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg',
         width: 752,
         height: 900
     },

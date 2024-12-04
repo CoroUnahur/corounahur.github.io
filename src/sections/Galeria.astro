@@ -1,16 +1,16 @@
 ---
-import { fetchInstagramImages } from "@/utils/data";
-import "photoswipe/style.css";
 import { images } from "@/utils/data";
-
-// const images = await fetchInstagramImages();
+import "photoswipe/style.css";
 ---
 
-<section class="h-auto w-auto p-5 bg-cinder-950">
-  <h2 class="text-zircon-50 text-2xl font-semibold">Galeria</h2>
+<section
+  id="galeria"
+  class="relative h-auto w-auto p-5 bg-cinder-950 justify-center items-center flex flex-col"
+>
+  <h2 class="text-zircon-50 text-4xl font-semibold">Galeria</h2>
   <article
-    class="columns-2 h-auto laptop:columns-4 gap-4 py-3 laptop:py-5"
-    id="gallery"
+    class="columns-2 h-auto laptop:columns-6 gap-4 py-10 laptop:py-5"
+    id="galeria"
   >
     {
       images.map(({ src, width, height, description }) => (
@@ -40,5 +40,6 @@ import { images } from "@/utils/data";
     doubleTapAction: false,
     pswpModule: () => import("photoswipe"),
   });
+
   lightbox.init();
 </script>

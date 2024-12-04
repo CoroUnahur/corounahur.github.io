@@ -6,15 +6,14 @@ import { Menu } from "@/icons/index.astro";
 const props = Astro.props;
 ---
 
-<div class="w-full flex justify-center">
+<a href="#menu" class="w-full flex justify-center">
   <img
     id="logo"
     src="LOGO_UNAHUR.webp"
     alt="Logo del coro de la Universidad Nacional de Hurlingham"
-    class="fixed z-50 top-3 m-auto w-16 h-14"
+    class="fixed z-50 w-16 h-14"
   />
-</div>
-
+</a>
 <nav
   id="navbar"
   class:list={[
@@ -37,57 +36,61 @@ const props = Astro.props;
 
 <style>
   #logo {
-    animation: traslateLogoMobile auto linear;
+    animation: traslateLogoDesktop auto linear;
     animation-timeline: scroll(root block);
+    transform: translateX(-50%) scale(1.5);
+    top: 2rem;
   }
   #navbar {
     animation: downNavbar auto linear;
     animation-timeline: scroll(root block);
   }
-
-  @media (min-width: 1024px) {
+  @media (max-width: 1024px) {
     #logo {
-      animation: traslateLogoDesktop auto linear;
+      animation: traslateLogoMobile auto linear;
       animation-timeline: scroll(root block);
+      transform: translateX(-50%) scale(1.5);
+      top: 2rem;
+    }
+  }
+
+  @keyframes traslateLogoDesktop {
+    0% {
+      left: 50%;
+    }
+    7% {
+      top: 0.25rem;
+      left: 10%;
+      transform: scale(0.7);
+    }
+    100% {
+      top: 0.25rem;
+      left: 10%;
+      transform: scale(0.7);
     }
   }
 
   @keyframes traslateLogoMobile {
-    7% {
-      transform: translateY(0);
-      scale: 1;
+    0% {
+      left: 50%;
     }
-    10% {
-      transform: translateX(-300%);
-      scale: 0.7;
+    7% {
+      top: 0.75rem;
+      left: 10%;
+      transform: scale(0.7);
     }
     100% {
-      transform: translateX(-300%);
-      scale: 0.7;
-    }
-  }
-  @keyframes traslateLogoDesktop {
-    7% {
-      transform: translateY(0);
-      scale: 1;
-      top: 0.25rem;
-    }
-    15% {
-      transform: translateX(-1300%);
-      scale: 0.7;
-      top: 0.25rem;
-    }
-    100% {
-      transform: translateX(-1300%);
-      scale: 0.7;
+      top: 0.75rem;
+      left: 10%;
+      transform: scale(0.7);
     }
   }
 
   @keyframes downNavbar {
-    7% {
+    0% {
       transform: translateY(-100%);
     }
-    10% {
+    7% {
       transform: translateY(0);
     }
     100% {

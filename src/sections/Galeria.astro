@@ -1,7 +1,7 @@
 ---
+import InstagramReel from "@/components/InstagramReel.astro";
 import Modal from "@/components/Modal.astro";
-import { images } from "@/utils/data";
-import "photoswipe/style.css";
+import { reels, images } from "@/utils/data";
 ---
 
 <section
@@ -14,9 +14,33 @@ import "photoswipe/style.css";
     id="galeria"
   >
     {
-      images.map(({ srcPreview, src, description }) => (
-        <Modal srcPreview={srcPreview} src={src} id={src} />
+      images.map(({ srcPreview, url, id }) => (
+        <Modal srcPreview={srcPreview} src={url} id={id} />
       ))
     }
   </article>
+
+  <article class="ml-10">
+    <h3 class="text-zircon-50 text-2xl font-semibold text-left mb-5">Reels</h3>
+    <div
+      class="flex flex-row w-screen gap-5 justify-start overflow-scroll custom-scrollbar"
+    >
+      {
+        reels.map(({ src, srcPreview }) => (
+          <InstagramReel src={src} srcPreview={srcPreview} />
+        ))
+      }
+    </div>
+  </article>
 </section>
+
+<style>
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

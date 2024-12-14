@@ -1,0 +1,61 @@
+---
+import { Play } from "@/icons/index.astro";
+const { src, srcPreview } = Astro.props;
+---
+
+<instagram-reel
+  class="relative rounded-xl mouse-pointer h-[570px] w-80 snap-center bg-black shrink-0 cursor-pointer bg-center bg-[length:105%] hover:bg-[length:110%] transition-[background-size]"
+  src={src}
+  srcPreview={srcPreview}
+>
+  <span class="absolute bottom-0 right-0 m-5">
+    <Play />
+  </span>
+</instagram-reel>
+
+<script>
+  class InstagramReel extends HTMLElement {
+    src?: string;
+
+    connectedCallback() {
+      this.src = this.getAttribute("src") || "";
+      const srcPreview = this.getAttribute("srcPreview");
+
+      this.addEventListener("blur", () => {
+        this.innerHTML = "";
+        this.style.backgroundImage = `url(${srcPreview})`;
+      });
+
+      this.style.backgroundImage = `url(${srcPreview})`;
+      this.addEventListener("click", this.activateVideo);
+      this.addEventListener("keydown", this.handleKeyPress);
+    }
+
+    activateVideo() {
+      this.style.backgroundImage = "unset";
+
+      this.innerHTML = "";
+
+      const video = document.createElement("video");
+      video.src = this.src || "";
+      video.controls = false;
+      video.autoplay = true;
+      video.onclick = (event) => {
+        event.stopPropagation();
+        if (video.paused) video.play();
+        else video.pause();
+      };
+      video.className = "rounded-xl p-0 w-full max-h-svh";
+      this.appendChild(video);
+      this.removeEventListener("click", this.activateVideo);
+      this.removeEventListener("keydown", this.activateVideo);
+    }
+
+    handleKeyPress(event: KeyboardEvent) {
+      if (event.code === "Enter" || event.code === "Space") {
+        this.activateVideo();
+      }
+    }
+  }
+  customElements.define("instagram-reel", InstagramReel);
+</script>

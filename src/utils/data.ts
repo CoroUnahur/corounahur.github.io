@@ -1,4 +1,4 @@
-import { Facebook, Youtube, Instagram } from "../icons/index.astro";
+import { Facebook, Youtube, Instagram } from "@/icons/index.astro";
 
 interface MenuItem {
     href: string;
@@ -25,132 +25,67 @@ export const socialMediaLinks: SocialMedia[] = [
     { icon: Instagram, url: 'https://www.youtube.com' }
 ];
 
-export interface Image {
-    description: string;
+export interface Reel {
     src: string;
     srcPreview?: string;
     width?: number;
     height?: number;
 }
 
-export const images: Image[] = [
+
+export const reels: Reel[] = [
+
     {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-200.jpg',
-        width: 2500,
-        height: 1667
+        src: 'https://instagram.faep7-1.fna.fbcdn.net/o1/v/t16/f2/m86/AQOlRDba8c41FwQ0XdS03xOR-ihfSJFayP6efxg4aDoyO3g7D7If5iHAObEN-L681nxiplClxqT3I0Y7Vyj0ZNIhVtcxCMidS0Lh_B8.mp4?stp=dst-mp4&efg=eyJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSIsInZlbmNvZGVfdGFnIjoidnRzX3ZvZF91cmxnZW4uY2xpcHMuYzIuNzIwLmJhc2VsaW5lIn0&_nc_cat=104&vs=1063259025278905_2409760064&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC81NzQ0NDc1MjAwMzM0MzE0QUM3MEQyQzNCMUI0RDQ5Ml92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dQbWQzeHVPcmhHNGZONEZBQVdxYnVhblBMTnhicV9FQUFBRhUCAsgBACgAGAAbABUAACbIgNnkv%2BCEQBUCKAJDMywXQEyAAAAAAAAYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HAA%3D%3D&ccb=9-4&oh=00_AYDhW6Fxwy_uro-ZLrdXZ3H-EhR1oj593I3cWzM6lY9EsQ&oe=675E7124&_nc_sid=7a9f4b',
+        srcPreview: 'reel1.jpg'
     },
     {
-        description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg',
-        width: 752,
-        height: 940
+        src: 'https://instagram.faep7-1.fna.fbcdn.net/o1/v/t16/f2/m86/AQNLlGVFD1mTlcB51Ya_a1z0xDRwaSVS4aDHRkI8DtoRSRWJKl9Iv7bWK4IiwqmbE0Iu9BF27Nx5V6eq9i9YguRqX8R98KAbLgCdh1E.mp4?stp=dst-mp4&efg=eyJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSIsInZlbmNvZGVfdGFnIjoidnRzX3ZvZF91cmxnZW4uY2xpcHMuYzIuNzIwLmJhc2VsaW5lIn0&_nc_cat=102&vs=1665025584042625_3226749991&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC8xMjQwMEM4RDYyMDU4NDE1Nzc5RDBCQTdGNUQ4OEQ5Nl92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dCaFgweHRfTUlITXJVQUJBR0FQYXlfaXkwRnlicV9FQUFBRhUCAsgBACgAGAAbABUAACb%2BtvHM0NSDQBUCKAJDMywXQDa7peNT988YEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HAA%3D%3D&ccb=9-4&oh=00_AYDdS2MuNfALnnAe4G8VyqyDDDxPevMHElgm8gE-NMMXog&oe=675E83B5&_nc_sid=7a9f4b',
+        srcPreview: 'reel2.jpg'
     },
     {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg',
-        width: 752,
-        height: 900
+        src: 'https://instagram.faep7-1.fna.fbcdn.net/o1/v/t16/f2/m86/AQOYMB845oXadain_JVIY5MZDCqSAFXtqncvaseUdwz1NGxVMnU-q_m5GRDaRS1TDxHOkt7hp2OTiLrJHwSwZaJ2T6MASYf-hQbAEy8.mp4?stp=dst-mp4&efg=eyJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSIsInZlbmNvZGVfdGFnIjoidnRzX3ZvZF91cmxnZW4uY2xpcHMuYzIuNzIwLmJhc2VsaW5lIn0&_nc_cat=103&vs=835610345420295_470158594&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9DMzQyRjk3NkZDRERENDVBQzNENzlBOTkyMzQwRDJCQV92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dNd1BjQnZnanZ2UWRfNEJBTkttQzFuSjNZZzdicV9FQUFBRhUCAsgBACgAGAAbABUAACb0tqLBlvP8PxUCKAJDMywXQGeTMzMzMzMYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HAA%3D%3D&ccb=9-4&oh=00_AYDx_yslLJvIICOwRtBbcJ6hnugQO3mPI9zvmUfyWORiRw&oe=675E84B0&_nc_sid=7a9f4b',
+        srcPreview: 'reel3.jpg'
     },
     {
-        description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg',
-        width: 752,
-        height: 940
+        src: 'https://instagram.faep7-1.fna.fbcdn.net/o1/v/t16/f2/m86/AQMCP8GIHlpHpQrvV1hpHMt1SmfM_9Rv898INKUEYCNQ44zMcbJyX6vpFDidzxajSwivOABQ4Gf51cx58UoCaTK321XVPc4yvenruE4.mp4?stp=dst-mp4&efg=eyJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSIsInZlbmNvZGVfdGFnIjoidnRzX3ZvZF91cmxnZW4uY2xpcHMuYzIuNzIwLmJhc2VsaW5lIn0&_nc_cat=101&vs=1699250113970274_3259543158&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC81NjQzMzQ5RjMwMzBCRkFCMTJDMEQ5RTUwQzMzMUFCNl92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dMYXc4QnRtamNnWWNPNENBSzlXbHctVjdhWXpicV9FQUFBRhUCAsgBACgAGAAbABUAACa2yNjehbD4PxUCKAJDMywXQEJMzMzMzM0YEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HAA%3D%3D&ccb=9-4&oh=00_AYA8pBcxXifb5gRWxPkLoI7BDlYx1Uyn-oLY-BO3z9rtmQ&oe=675E9ED9&_nc_sid=7a9f4b',
+        srcPreview: 'reel4.jpg'
     },
     {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/7/img-200.jpg',
-        width: 752,
-        height: 900
+        src: 'https://instagram.faep7-1.fna.fbcdn.net/o1/v/t16/f2/m86/AQOYMB845oXadain_JVIY5MZDCqSAFXtqncvaseUdwz1NGxVMnU-q_m5GRDaRS1TDxHOkt7hp2OTiLrJHwSwZaJ2T6MASYf-hQbAEy8.mp4?stp=dst-mp4&efg=eyJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSIsInZlbmNvZGVfdGFnIjoidnRzX3ZvZF91cmxnZW4uY2xpcHMuYzIuNzIwLmJhc2VsaW5lIn0&_nc_cat=103&vs=835610345420295_470158594&_nc_vs=HBksFQIYUmlnX3hwdl9yZWVsc19wZXJtYW5lbnRfc3JfcHJvZC9DMzQyRjk3NkZDRERENDVBQzNENzlBOTkyMzQwRDJCQV92aWRlb19kYXNoaW5pdC5tcDQVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dNd1BjQnZnanZ2UWRfNEJBTkttQzFuSjNZZzdicV9FQUFBRhUCAsgBACgAGAAbABUAACb0tqLBlvP8PxUCKAJDMywXQGeTMzMzMzMYEmRhc2hfYmFzZWxpbmVfMV92MREAdf4HAA%3D%3D&ccb=9-4&oh=00_AYDx_yslLJvIICOwRtBbcJ6hnugQO3mPI9zvmUfyWORiRw&oe=675E84B0&_nc_sid=7a9f4b',
+        srcPreview: 'reel3.jpg'
     },
-    {
-        description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/8/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/8/img-200.jpg',
-        width: 752,
-        height: 940
-    },
-    {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/10/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/10/img-200.jpg',
-        width: 752,
-        height: 900
-    },
-    {
-        description: 'lorem ipsum dolor sit amet consectetur adipiscing elit.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/11/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/11/img-200.jpg',
-        width: 752,
-        height: 940
-    },
-    {
-        description: 'A calm ocean with clear blue water.',
-        src: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg',
-        srcPreview: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg',
-        width: 752,
-        height: 900
-    },
-    
 ];
 
 
-export async function fetchInstagramImages(): Promise<Image[]> {
-	const {data} = await fetch('https://www.instagram.com/graphql/query/', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			__user: "0",
-			variables: {
-				data:{
-					count:2,
-					include_relationship_info:false,
-					latest_besties_reel_media:false,
-					latest_reel_media:false
-				},
-					username:"corounahur",
-					__relay_internal__pv__PolarisIsLoggedInrelayprovider:false,
-					__relay_internal__pv__PolarisFeedShareMenurelayprovider:false
-				},
-			server_timestamps: false,
-			doc_id: "8759034877476257"
-		  }),
-	}).then((response) => response.json());
+const generateRandomImageUrl = (): string[] => {
+    const id = Math.floor(Math.random() * 300);
+    const width = Math.floor(Math.random() * 200) + 1000;
+    const height = Math.floor(Math.random() * 200) + 1000;
+    const prevWidth = Math.floor(Math.random() * 200) + 100;
+    const prevHeight = Math.floor(Math.random() * 200) + 100;
+    return [`https://picsum.photos/id/${id}/${width}/${height}.webp`,`https://picsum.photos/id/${id}/${prevWidth}/${prevHeight}.webp`];
+};
 
-
-	const instagramImages: Image[] = []
-    
-
-	data.xdt_api__v1__feed__user_timeline_graphql_connection.edges.forEach(({node}: any) => {
-		if(node.carousel_media_count){
-            const description = node.caption ? node.caption.text : '';
-            
-        instagramImages.push(...node.carousel_media.map((media: any) => ({
-            description: description,
-            src: media.image_versions2.candidates[0].url,
-            width: media.image_versions2.candidates[0].width,
-            height: media.image_versions2.candidates[0].height,
-        })));
-		}
-		else{
-			instagramImages.push({
-				description: node.caption.text || '',
-				src: node.image_versions2.candidates[0].url,
-				width: node.image_versions2.candidates[0].width,
-				height: node.image_versions2.candidates[0].height,
-			})
-		}
-
-
-	});
-
-	return instagramImages;
+export interface Image {
+    id: number;
+    url: string;
+    srcPreview?: string;
 }
+
+export const images: Image[] = Array.from({ length: 30 }, (_, index) => {
+    const image = generateRandomImageUrl();
+    return {
+    id: index,
+    url: image[0],
+    srcPreview: image[1]
+    
+}});
+
+
+export const fetchImages = async (): Promise<Image[]> => {
+    const response = await fetch("https://picsum.photos/v2/list?page=2&limit=100");
+    const images: Image[] = await response.json();
+    return images;
+}
+

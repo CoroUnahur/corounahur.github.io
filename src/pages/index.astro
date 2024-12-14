@@ -1,15 +1,18 @@
 ---
+import Footer from "@/components/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 import Conciertos from "@/sections/Conciertos.astro";
 import Galeria from "@/sections/Galeria.astro";
-import Modal from "@/components/Modal.astro";
+import Hero from "@/sections/Hero.astro";
 ---
 
-<Layout title="Coro UNAHUR">
+<Layout>
+  <Hero />
   <Conciertos />
   <Galeria />
   <section></section>
   <section></section>
   <section></section>
   <section id="inscripcion"></section>
+  <Footer />
 </Layout>

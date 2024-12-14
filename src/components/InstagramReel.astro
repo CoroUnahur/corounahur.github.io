@@ -8,54 +8,80 @@ const { src, srcPreview } = Astro.props;
   src={src}
   srcPreview={srcPreview}
 >
-  <span class="absolute bottom-0 right-0 m-5">
+  <span id="play-button" class="absolute bottom-0 right-0 m-5">
     <Play />
   </span>
 </instagram-reel>
 
 <script>
   class InstagramReel extends HTMLElement {
-    src?: string;
+    private src: string = "";
+    private srcPreview: string | null;
+    private $playButton: Element | null;
 
     connectedCallback() {
       this.src = this.getAttribute("src") || "";
-      const srcPreview = this.getAttribute("srcPreview");
+      this.srcPreview = this.getAttribute("srcPreview");
+      this.style.backgroundImage = `url(${this.srcPreview})`;
+      this.$playButton = this.querySelector("#play-button");
 
-      this.addEventListener("blur", () => {
-        this.innerHTML = "";
-        this.style.backgroundImage = `url(${srcPreview})`;
-      });
-
-      this.style.backgroundImage = `url(${srcPreview})`;
-      this.addEventListener("click", this.activateVideo);
-      this.addEventListener("keydown", this.handleKeyPress);
+      this.setupEventListeners();
     }
 
-    activateVideo() {
+    private setupEventListeners() {
+      this.addEventListener("click", this.activateVideo.bind(this));
+      this.addEventListener("keydown", this.handleKeyPress.bind(this));
+      this.addEventListener("blur", this.resetToPreview.bind(this));
+    }
+
+    private resetToPreview() {
+      this.$playButton.style.display = "block";
+      this.style.backgroundImage = `url(${this.srcPreview})`;
+    }
+
+    private activateVideo() {
+      this.$playButton.style.display = "none";
       this.style.backgroundImage = "unset";
 
-      this.innerHTML = "";
-
-      const video = document.createElement("video");
-      video.src = this.src || "";
-      video.controls = false;
-      video.autoplay = true;
-      video.onclick = (event) => {
-        event.stopPropagation();
-        if (video.paused) video.play();
-        else video.pause();
-      };
-      video.className = "rounded-xl p-0 w-full max-h-svh";
+      const video = this.createVideoElement();
       this.appendChild(video);
-      this.removeEventListener("click", this.activateVideo);
-      this.removeEventListener("keydown", this.activateVideo);
+
+      video.addEventListener("click", (event) =>
+        this.togglePlay(event, video, this.$playButton)
+      );
+      this.removeEventListener("click", this.activateVideo.bind(this));
     }
 
-    handleKeyPress(event: KeyboardEvent) {
+    private createVideoElement(): HTMLVideoElement {
+      const video = document.createElement("video");
+      video.src = this.src;
+      video.controls = false;
+      video.autoplay = true;
+      video.className = "rounded-xl p-0 w-full max-h-svh";
+      return video;
+    }
+
+    private togglePlay(
+      event: Event,
+      video: HTMLVideoElement,
+      playButton: Element
+    ) {
+      event.stopPropagation();
+      if (video.paused) {
+        video.play();
+        playButton.style.display = "none";
+      } else {
+        video.pause();
+        playButton.style.display = "block";
+      }
+    }
+
+    private handleKeyPress(event: KeyboardEvent) {
       if (event.code === "Enter" || event.code === "Space") {
         this.activateVideo();
       }
     }
   }
+
   customElements.define("instagram-reel", InstagramReel);
 </script>

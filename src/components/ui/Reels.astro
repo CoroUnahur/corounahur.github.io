@@ -1,0 +1,70 @@
+---
+import InstagramReel from "@/components/InstagramReel.astro";
+import { reels } from "@/utils/data";
+import ArrowButton from "../ArrowButton.astro";
+---
+
+<article class="ml-10 relative">
+  <div class="flex items-center justify-between pb-6 md:pb-12">
+    <h3 class="!pb-0 text-white text-2xl font-semibold">Reels</h3>
+
+    <div class="hidden laptop:flex self-center gap-x-4 mx-10 scale-75">
+      <ArrowButton direction="left" id="left-button" />
+      <ArrowButton direction="right" id="right-button" />
+    </div>
+  </div>
+
+  <div
+    class="flex flex-row w-screen gap-5 justify-start overflow-scroll custom-scrollbar pr-10"
+  >
+    {
+      reels.map(({ src, srcPreview }) => (
+        <InstagramReel src={src} srcPreview={srcPreview} />
+      ))
+    }
+  </div>
+</article>
+
+<script>
+  const $scrollRightButton = document.querySelector("#right-button");
+  const $scrollLeftButton = document.querySelector("#left-button");
+  const $reelsContainer = document.querySelector(".custom-scrollbar");
+
+  $scrollRightButton?.addEventListener("click", () => {
+    $reelsContainer?.scrollBy({ left: 500, behavior: "smooth" });
+  });
+
+  $scrollLeftButton?.addEventListener("click", () => {
+    $reelsContainer?.scrollBy({ left: -500, behavior: "smooth" });
+  });
+
+  const toggleButtonState = (button, isDisabled) => {
+    button.disabled = isDisabled;
+    button.classList.toggle("disabledButton", isDisabled);
+  };
+
+  const checkScrollButtons = () => {
+    const isAtMaxScrollRight =
+      $reelsContainer.scrollWidth - $reelsContainer.clientWidth ===
+      $reelsContainer.scrollLeft;
+
+    const isAtMaxScrollLeft = $reelsContainer.scrollLeft === 0;
+
+    toggleButtonState($scrollLeftButton, isAtMaxScrollLeft);
+    toggleButtonState($scrollRightButton, isAtMaxScrollRight);
+  };
+
+  $reelsContainer.addEventListener("scroll", checkScrollButtons);
+  checkScrollButtons();
+</script>
+
+<style>
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

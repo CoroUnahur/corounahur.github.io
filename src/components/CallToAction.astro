@@ -1,0 +1,16 @@
+---
+const { color, colorHover, text, className, href } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "rounded-3xl bg-transparent border-2 px-6 py-2 font-bold cursor-pointer text-center w-52",
+    className,
+  ]}
+  style={`color: ${color}; border-color: ${color}; transition: all 0.3s ease;`}
+  onmouseover={`this.style.borderColor='${colorHover}'; this.style.color='${colorHover}';`}
+  onmouseout={`this.style.borderColor='${color}'; this.style.color='${color}';`}
+>
+  {text}
+</a>

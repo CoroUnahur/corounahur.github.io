@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
   theme: {
     screens: {
       laptop: "1024px",

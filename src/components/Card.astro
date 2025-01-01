@@ -1,0 +1,13 @@
+---
+const { href = "#", title, description, image } = Astro.props;
+---
+
+<a href={href} class="transition-all duration-300">
+  <div class="grid grid-cols-1 p-4 rounded-lg shadow-md">
+    <img src={image} alt={title} class="rounded-lg" />
+    <div>
+      <h2 class="text-xl font-bold">{title}</h2>
+      <p>{description}</p>
+    </div>
+  </div>
+</a>

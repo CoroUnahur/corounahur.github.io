@@ -1,0 +1,35 @@
+---
+const { bgImage, name } = Astro.props;
+---
+
+<section
+  id={name}
+  class="grid grid-cols-1 laptop:grid-cols-2 w-full overflow-hidden"
+>
+  <div>
+    <img
+      class=""
+      alt="Coro de la universidad nacional de Hurlingham"
+      src={bgImage}
+    />
+  </div>
+
+  <div
+    class="mx-auto px-4 py-3 text-center w-full h-full flex flex-col justify-center gap-5 items-center"
+  >
+    <p class="text-2xl font-bold">Sobre el coro</p>
+    <div class="text-xl flex flex-col gap-5 items-center text-balance">
+      <p class="max-w-4xl">
+        El Coro de la Universidad Nacional de Hurlingham es un espacio dedicado
+        a la expresión musical y artística. Abierto a toda la comunidad
+        universitaria, el coro busca fomentar el desarrollo vocal y la
+        apreciación de la música coral.
+      </p>
+      <p class="max-w-4xl">
+        Con un repertorio variado que abarca desde obras clásicas hasta piezas
+        contemporáneas, el coro ofrece una experiencia enriquecedora para todos
+        sus miembros.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import CardConciertos from "@components/CardConciertos.astro";
+import { conciertos } from "@/utils/conciertos";
+const { name } = Astro.props;
+---
+
+<section id={name} class="my-10 flex flex-col gap-5 m-auto">
+  <h2 class="text-2xl font-bold text-center">Conciertos</h2>
+  <section
+    class="grid grid-cols-1 w-full gap-10 p-4 laptop:grid-cols-3 justify-center m-auto"
+  >
+    {
+      conciertos.map(({ image, titulo, fecha, hora, lugar, calle }) => (
+        <CardConciertos
+          image={image}
+          titulo={titulo}
+          fecha={fecha}
+          hora={hora}
+          lugar={lugar}
+          calle={calle}
+        />
+      ))
+    }
+  </section>
+</section>

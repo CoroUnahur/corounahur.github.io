@@ -1,0 +1,63 @@
+---
+import Modal from "@/components/Modal.astro";
+import { images } from "@/utils/images";
+---
+
+<article
+  class="h-auto m-auto w-full flex flex-col laptop:block justify-center laptop:columns-6 columns-1 gap-4 py-10 laptop:py-5 px-10"
+  id="galeria"
+>
+  {
+    images.map(({ srcPreview, url, id }) => (
+      <Modal srcPreview={srcPreview} src={url} id={id} />
+    ))
+  }
+</article>
+
+<div
+  id="modal"
+  class="fixed z-50 p-8 overflow-x-hidden overflow-y-auto m-auto inset-0 bg-opacity-50 w-full h-full backdrop-blur-sm flex items-center justify-center"
+>
+  <img alt="Imagen del coro" class="rounded-lg" />
+</div>
+
+<style>
+  #overlay {
+    display: none;
+  }
+
+  #modal {
+    display: none;
+  }
+
+  #modal::-webkit-scrollbar {
+    display: none;
+  }
+
+  #modal img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("modal");
+
+    const $imagePreview = Array.from(document.querySelectorAll("a img")).filter(
+      (e) => e.hasAttribute("data-modal-src")
+    );
+    $imagePreview.forEach((e) =>
+      e.addEventListener("click", () => {
+        const imageSrc = e.getAttribute("data-modal-src");
+        modal.querySelector("img").src = imageSrc;
+        modal.style.display = "flex";
+      })
+    );
+
+    modal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  });
+</script>

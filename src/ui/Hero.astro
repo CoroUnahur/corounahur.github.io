@@ -1,0 +1,93 @@
+---
+import Logo from "@/assets/logo.astro";
+import CallToAction from "@components/CallToAction.astro";
+import Separator from "@components/Separator.astro";
+
+const { bgImage, name } = Astro.props;
+---
+
+<div class="w-full absolute flex justify-center items-center p-5">
+  <Logo className="z-10 w-16 h-14" />
+</div>
+<section
+  id={name}
+  class="hero relative grid grid-cols-1 items-center overflow-hidden bg-black"
+>
+  <div class="overlay relative">
+    <span class="w-full h-full"></span>
+    <div class="gradient-overlay"></div>
+  </div>
+
+  <div
+    class="mx-auto px-4 py-16 text-center absolute w-full h-full flex flex-col gap-5 justify-center items-center translate-y-28"
+  >
+    <div>
+      <h1 class="font-bold text-6xl">CORO</h1>
+      <p class="text-xl">Universidad Nacional de Hurlingham</p>
+    </div>
+    <Separator />
+    <p class="text-balance max-w-4xl">
+      Nuestro coro está compuesto por estudiantes apasionados por la música, que
+      se unen para crear armonías y melodías que inspiran y emocionan.
+    </p>
+  </div>
+  <CallToAction
+    color="#77c754"
+    colorHover="#428828"
+    text="¡Unite al coro!"
+    className="absolute bottom-0 left-0 right-0 mx-auto laptop:mb-10 mb-20"
+  />
+</section>
+
+<style>
+  .hero {
+    min-height: max(100svh, 30rem);
+  }
+
+  .overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .overlay span {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    object-fit: contain;
+    filter: grayscale(100%);
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg-transparent);
+    pointer-events: none;
+  }
+
+  @media (max-width: 640px) {
+    .overlay span {
+      background-image: url("/images/image (1).webp");
+    }
+  }
+
+  @media (min-width: 640px) {
+    .overlay span {
+      background-image: url("/bg.webp");
+    }
+  }
+
+  span {
+    max-width: 100%;
+    mask-image: linear-gradient(
+      180deg,
+      rgb(11, 9, 121) 80%,
+      rgba(29, 27, 32, 0) 98%
+    );
+  }
+</style>

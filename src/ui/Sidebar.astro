@@ -1,0 +1,97 @@
+---
+import Logo from "@/assets/logo.astro";
+import { menuItems } from "@/utils/menuItems";
+---
+
+<nav id="sidebar" class="flex flex-col p-5 items-end rounded-s-xl">
+  <div class="flex justify-between w-full items-center">
+    <Logo className="w-12 " />
+    <button id="closeSidebar">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="black"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+  <section class="w-full h-full flex flex-col justify-center items-center">
+    <ul class="space-y-4 w-full">
+      {
+        menuItems.map((item) => (
+          <li>
+            <a
+              class="item text-2xl font-semibold flex gap-3 items-center"
+              href={item.href}
+            >
+              <item.icon />
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</nav>
+<span
+  id="overlay"
+  class="fixed inset-0 bg-opacity-50 z-50 w-full h-full backdrop-blur-sm"
+>
+</span>
+
+<style>
+  #sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 17rem;
+    height: 100vh;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(17rem);
+    color: var(--color-text-secondary);
+  }
+
+  #overlay {
+    display: none;
+  }
+  .item:hover {
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  const button = document.getElementById("sidebarButton");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const closeSidebar = document.getElementById("closeSidebar");
+
+  button.addEventListener("click", () => {
+    sidebar.style.transform =
+      sidebar.style.transform === "translateX(0)"
+        ? "translateX(17rem)"
+        : "translateX(0)";
+
+    overlay.style.display =
+      overlay.style.display === "block" ? "none" : "block";
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.style.transform = "translateX(17rem)";
+    overlay.style.display = "none";
+  });
+
+  closeSidebar.addEventListener("click", () => {
+    sidebar.style.transform = "translateX(17rem)";
+    overlay.style.display = "none";
+  });
+</script>

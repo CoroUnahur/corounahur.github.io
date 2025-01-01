@@ -1,0 +1,11 @@
+---
+import Imagenes from "@ui/Imagenes.astro";
+import Reels from "@ui/Reels.astro";
+const { name } = Astro.props;
+---
+
+<section id={name} class="my-10 flex flex-col gap-5">
+  <h2 class="text-2xl font-bold text-center">Galeria</h2>
+  <Imagenes />
+  <Reels />
+</section>

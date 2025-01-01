@@ -17,7 +17,7 @@ const { src, srcPreview } = Astro.props;
   class InstagramReel extends HTMLElement {
     private src: string = "";
     private srcPreview: string | null;
-    private $playButton: Element | null;
+    private $playButton: HTMLElement | null;
 
     connectedCallback() {
       this.src = this.getAttribute("src") || "";
@@ -57,6 +57,7 @@ const { src, srcPreview } = Astro.props;
       video.src = this.src;
       video.controls = false;
       video.autoplay = true;
+      video.muted = true;
       video.className = "rounded-xl p-0 w-full max-h-svh";
       return video;
     }
@@ -64,7 +65,7 @@ const { src, srcPreview } = Astro.props;
     private togglePlay(
       event: Event,
       video: HTMLVideoElement,
-      playButton: Element
+      playButton: HTMLElement
     ) {
       event.stopPropagation();
       if (video.paused) {

@@ -1,12 +1,12 @@
 ---
 import InstagramReel from "@/components/InstagramReel.astro";
-import { reels } from "@/utils/data";
-import ArrowButton from "../ArrowButton.astro";
+import { reels } from "@/utils/reels";
+import ArrowButton from "@/components/ArrowButton.astro";
 ---
 
-<article class="ml-10 relative">
-  <div class="flex items-center justify-between pb-6 md:pb-12">
-    <h3 class="!pb-0 text-white text-2xl font-semibold">Reels</h3>
+<article class="overflow-hidden">
+  <div class="flex items-center justify-between pb-6">
+    <h3 class="text-white text-2xl font-semibold pl-10">Reels</h3>
 
     <div class="hidden laptop:flex self-center gap-x-4 mx-10 scale-75">
       <ArrowButton direction="left" id="left-button" />
@@ -15,7 +15,7 @@ import ArrowButton from "../ArrowButton.astro";
   </div>
 
   <div
-    class="flex flex-row w-screen gap-5 justify-start overflow-scroll custom-scrollbar pr-10"
+    class="pl-10 flex flex-row w-screen gap-5 justify-start overflow-scroll custom-scrollbar pr-10"
   >
     {
       reels.map(({ src, srcPreview }) => (

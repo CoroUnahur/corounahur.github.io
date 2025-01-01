@@ -1,0 +1,63 @@
+<div class="relative flex items-center gap-4">
+  <button
+    id="scrollButton"
+    class="transition-all z-10 laptop:mr-10 mr-4 fixed right-0 bottom-0 flex items-center justify-center w-12 h-12 rounded-full shadow-md focus:outline-none"
+    aria-label="Toggle Menu"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1.5em"
+      height="1.5em"
+      class="pointer-events-none transition-all duration-200"
+      viewBox="0 0 24 24"
+    >
+      <g transform="rotate(-90 12 12)">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <path d="M19 12H5.5"></path>
+          <path d="M5 12L10 17M5 12L10 7"></path>
+        </g>
+      </g>
+    </svg>
+  </button>
+</div>
+
+<style>
+  button {
+    position: fixed;
+    right: 0;
+    top: 85vh;
+    background-color: var(--color-primary);
+    color: var(--color-text-secondary);
+    &:hover {
+      background-color: var(--color-primary-hover);
+    }
+  }
+</style>
+
+<script>
+  const $button = document.querySelector("#scrollButton") as HTMLElement;
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      $button.style.transform = "rotate(180deg)";
+    } else {
+      $button.style.transform = "rotate(0deg)";
+    }
+  };
+
+  const scrollUpOrDown = () => {
+    window.scrollTo({
+      top: window.scrollY >= window.innerHeight / 2 ? 0 : window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
+  $button.addEventListener("click", scrollUpOrDown);
+  window.addEventListener("scroll", handleScroll);
+</script>

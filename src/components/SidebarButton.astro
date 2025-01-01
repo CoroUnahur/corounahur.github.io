@@ -1,0 +1,20 @@
+---
+import Menu from "@/icons/Menu.astro";
+---
+
+<button
+  id="sidebarButton"
+  class="absolute z-10 top-0 right-0 laptop:mr-10 mr-2 mt-5 flex items-center justify-center w-12 h-12 rounded-full shadow-md focus:outline-none pointer-events-auto"
+  aria-label="Toggle Menu"
+>
+  <Menu color="#1b392c" />
+</button>
+
+<style>
+  #sidebarButton {
+    background-color: var(--color-primary);
+    &:hover {
+      background-color: var(--color-primary-hover);
+    }
+  }
+</style>

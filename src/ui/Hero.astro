@@ -11,7 +11,7 @@ const { bgImage, name } = Astro.props;
 </div>
 <section
   id={name}
-  class="hero relative grid grid-cols-1 items-center overflow-hidden bg-black"
+  class="hero relative grid grid-cols-1 items-center overflow-hidden bg-transparent"
 >
   <div class="overlay relative">
     <span class="w-full h-full"></span>
@@ -30,13 +30,13 @@ const { bgImage, name } = Astro.props;
       Nuestro coro está compuesto por estudiantes apasionados por la música, que
       se unen para crear armonías y melodías que inspiran y emocionan.
     </p>
+    <CallToAction
+      color="#77c754"
+      colorHover="#428828"
+      text="¡Unite al coro!"
+      className="relative bottom-0 left-0 right-0 mx-auto laptop:mb-10 mb-20"
+    />
   </div>
-  <CallToAction
-    color="#77c754"
-    colorHover="#428828"
-    text="¡Unite al coro!"
-    className="absolute bottom-0 left-0 right-0 mx-auto laptop:mb-10 mb-20"
-  />
 </section>
 
 <style>
@@ -67,6 +67,18 @@ const { bgImage, name } = Astro.props;
     width: 100%;
     height: 100%;
     background: var(--color-bg-transparent);
+    opacity: 0.4;
+    background-image: linear-gradient(
+      325deg,
+      hsl(280deg 55% 10%) 67%,
+      hsl(268deg 50% 10%) 71%,
+      hsl(257deg 46% 11%) 74%,
+      hsl(245deg 43% 11%) 78%,
+      hsl(233deg 46% 10%) 82%,
+      hsl(224deg 56% 9%) 87%,
+      hsl(217deg 67% 9%) 93%,
+      hsl(212deg 75% 8%) 100%
+    );
     pointer-events: none;
   }
 
@@ -78,6 +90,7 @@ const { bgImage, name } = Astro.props;
 
   @media (min-width: 640px) {
     .overlay span {
+      opacity: 0.8;
       background-image: url("/bg.webp");
     }
   }

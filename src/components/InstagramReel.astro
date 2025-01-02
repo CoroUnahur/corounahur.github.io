@@ -57,7 +57,7 @@ const { src, srcPreview } = Astro.props;
       video.src = this.src;
       video.controls = false;
       video.autoplay = true;
-      video.muted = true;
+      video.muted = false;
       video.className = "rounded-xl p-0 w-full max-h-svh";
       return video;
     }

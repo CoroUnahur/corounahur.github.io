@@ -1,11 +1,17 @@
 ---
-import Logo from "@/assets/logo.astro";
 import { menuItems } from "@/utils/menuItems";
 ---
 
 <nav id="sidebar" class="flex flex-col p-5 items-end rounded-s-xl">
   <div class="flex justify-between w-full items-center">
-    <Logo className="w-12 " />
+    <a href="#menu" class="flex justify-center">
+      <img
+        id="logo"
+        src="LOGO_UNAHUR.webp"
+        alt="Logo del coro de la Universidad Nacional de Hurlingham"
+        class="aspect-square w-12"
+      />
+    </a>
     <button id="closeSidebar">
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,4 @@
 ---
-import Logo from "@/assets/logo.astro";
 import CallToAction from "@components/CallToAction.astro";
 import Separator from "@components/Separator.astro";
 
@@ -7,7 +6,14 @@ const { bgImage, name } = Astro.props;
 ---
 
 <div class="w-full absolute flex justify-center items-center p-5">
-  <Logo className="z-10 w-16 h-14" />
+  <a href="#menu" class="flex justify-center">
+    <img
+      id="logo"
+      src="LOGO_UNAHUR.webp"
+      alt="Logo del coro de la Universidad Nacional de Hurlingham"
+      class="z-10 w-16 h-14 aspect-square"
+    />
+  </a>
 </div>
 <section
   id={name}

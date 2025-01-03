@@ -9,5 +9,6 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   site: "https://corounahur.github.io",
+  compressHTML: false,
   integrations: [tailwind()],
 });
